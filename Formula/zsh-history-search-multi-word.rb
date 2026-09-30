@@ -1,4 +1,4 @@
-class ZshSearchMultiWord < Formula
+class ZshHistorySearchMultiWord < Formula
   desc "Zsh history search with multi-word queries and syntax highlighting"
   homepage "https://github.com/zdharma-continuum/history-search-multi-word"
   license any_of: ["MIT", "GPL-3.0-only"]
@@ -16,7 +16,7 @@ class ZshSearchMultiWord < Formula
   def caveats
     <<~EOS
       To activate the plugin, add the following line to your ~/.zshrc:
-        source #{HOMEBREW_PREFIX}/share/zsh-search-multi-word/history-search-multi-word.plugin.zsh
+        source #{HOMEBREW_PREFIX}/share/zsh-history-search-multi-word/history-search-multi-word.plugin.zsh
       The plugin binds Ctrl+R to start the multi-word history search.
     EOS
   end
