@@ -12,19 +12,20 @@ class ZshZephyr < Formula
     pkgshare.install Dir["*"]
   end
 
+  # Use opt_pkgshare instead of pgkshare to avoid brew symlinks to zsh files
   def caveats
     <<~EOS
       To activate zephyr, add the following at the end of your .zshrc:
 
-        source #{HOMEBREW_PREFIX}/share/zsh-zephyr/zephyr.zsh
+        source #{opt_pkgshare}/zephyr.zsh
 
       You will also need to restart your terminal for this change to take effect.
     EOS
   end
 
   test do
-    assert_match "#{pkgshare}",
-      shell_output("zsh -c '. #{pkgshare}/zephyr.zsh && echo $ZEPHYR_HOME'")
+    assert_match "#{opt_pkgshare}",
+      shell_output("zsh -c '. #{opt_pkgshare}/zephyr.zsh && echo $ZEPHYR_HOME'")
   end
 
 end
